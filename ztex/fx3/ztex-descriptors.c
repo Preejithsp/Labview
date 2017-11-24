@@ -113,8 +113,8 @@ const uint8_t ztex_usb3_config_descriptor[] __attribute__ ((aligned (32))) = {
 		/* Configuration descriptor */
 		9, /* 0, Descriptor size */
 		CY_U3P_USB_CONFIG_DESCR, /* 1, Configuration descriptor type */
-		0x12, 0x01, /* Length of this descriptor and all sub descriptors */
-		0x04, /* Number of interfaces */
+		0xEF, 0x00, /* Length of this descriptor and all sub descriptors */
+		0x03, /* Number of interfaces */
 		0x01, /* 5, Configuration number */
 		0x00, /* 6, Configuration string index */
 		0x80, /* 7, attributes: bus */
@@ -388,48 +388,48 @@ const uint8_t ztex_usb3_config_descriptor[] __attribute__ ((aligned (32))) = {
 		0x00, /* 2, bursts*/
 		0x00, /* 3, attributes */
 		0x00, 0x00,
-
-  /* Interface Descriptors */
-
-		0x09, /* 0, Descriptor size */
-		CY_U3P_USB_INTRFC_DESCR, /* 1, Interface Descriptor type */
-		0x03, /* 2, Interface number */
-		0x00, /* 3, Alternate setting number */
-		0x02, /* 4, Number of end points */
-		0xFF, /* 5, Interface class */
-		0x00, /* 5, Interface sub class */
-		0x00, /* 6, Interface protocol code  */
-		0x04, /* 7, Interface descriptor string index */
-
-		/* Producer */
-		0x07, /* 0, Descriptor size */
-		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
-		0x02, /* 2, Endpoint number + direction */
-		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
-		0x00, 0x04, /* 4, Max packet size */
-		0x00, /* 6, Service interval */
-
-		/* Super speed endpoint companion descriptor for producer EP */
-		0x06, /* 0, Descriptor size */
-		CY_U3P_SS_EP_COMPN_DESCR, /* 1, SS endpoint companion descriptor type  */
-		0x0F, /* 2, bursts*/
-		0x00, /* 3, attributes */
-		0x00, 0x00,
-
-		/* Consumer */
-		0x07, /* 0, Descriptor size */
-		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
-		0x84, /* 2, Endpoint number + direction */
-		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
-		0x00, 0x04, /* 4, Max packet size */
-		0x00, /* 6, Service interval */
-
-		/* Super speed endpoint companion descriptor for Consumer EP */
-		0x06, /* 0, Descriptor size */
-		CY_U3P_SS_EP_COMPN_DESCR, /* 1, SS endpoint companion descriptor type  */
-		0x0F, /* 2, bursts*/
-		0x00, /* 3, attributes */
-		0x00, 0x00
+//
+//  /* Interface Descriptors */
+//
+//		0x09, /* 0, Descriptor size */
+//		CY_U3P_USB_INTRFC_DESCR, /* 1, Interface Descriptor type */
+//		0x03, /* 2, Interface number */
+//		0x00, /* 3, Alternate setting number */
+//		0x02, /* 4, Number of end points */
+//		0xFF, /* 5, Interface class */
+//		0x00, /* 5, Interface sub class */
+//		0x00, /* 6, Interface protocol code  */
+//		0x04, /* 7, Interface descriptor string index */
+//
+//		/* Producer */
+//		0x07, /* 0, Descriptor size */
+//		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
+//		0x02, /* 2, Endpoint number + direction */
+//		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
+//		0x00, 0x04, /* 4, Max packet size */
+//		0x00, /* 6, Service interval */
+//
+//		/* Super speed endpoint companion descriptor for producer EP */
+//		0x06, /* 0, Descriptor size */
+//		CY_U3P_SS_EP_COMPN_DESCR, /* 1, SS endpoint companion descriptor type  */
+//		0x0F, /* 2, bursts*/
+//		0x00, /* 3, attributes */
+//		0x00, 0x00,
+//
+//		/* Consumer */
+//		0x07, /* 0, Descriptor size */
+//		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
+//		0x84, /* 2, Endpoint number + direction */
+//		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
+//		0x00, 0x04, /* 4, Max packet size */
+//		0x00, /* 6, Service interval */
+//
+//		/* Super speed endpoint companion descriptor for Consumer EP */
+//		0x06, /* 0, Descriptor size */
+//		CY_U3P_SS_EP_COMPN_DESCR, /* 1, SS endpoint companion descriptor type  */
+//		0x0F, /* 2, bursts*/
+//		0x00, /* 3, attributes */
+//		0x00, 0x00
 
 
 };
@@ -439,8 +439,8 @@ const uint8_t ztex_usb2_config_descriptor[] __attribute__ ((aligned (32))) = {
 		// Configuration descriptor
 		9,// 0, Descriptor size
 		CY_U3P_USB_CONFIG_DESCR,       		// 1, Configuration descriptor type
-        0xF4,0x00,                      /* Length of this descriptor and all sub descriptors */
-        0x04,                           /* Number of interfaces */
+        0xD1,0x00,                      /* Length of this descriptor and all sub descriptors */
+        0x03,                           /* Number of interfaces */
 		0x01,                           		// 5, Configuration number
 		0x00,                           		// 6, Configuration string index
 		0x80,                           		// 7, attributes: bus
@@ -703,33 +703,33 @@ const uint8_t ztex_usb2_config_descriptor[] __attribute__ ((aligned (32))) = {
 		0x00, 0x02, /* 4, Max packet size */
 		0x00,
 
-	     // Interface descriptors
-
-		0x09, /* 0, Descriptor size */
-		CY_U3P_USB_INTRFC_DESCR, /* 1, Interface Descriptor type */
-		0x03, /* 2, Interface number */
-		0x00, /* 3, Alternate setting number */
-		0x02, /* 4, Number of end points */
-		0xFF, /* 5, Interface class */
-		0x00, /* 5, Interface sub class */
-		0x00, /* 6, Interface protocol code  */
-		0x04, /* 7, Interface descriptor string index */
-
-		/* Producer */
-		0x07, /* 0, Descriptor size */
-		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
-		0x02, /* 2, Endpoint number + direction */
-		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
-		0x00, 0x02, /* 4, Max packet size */
-		0x00, /* 6, Service interval */
-
-		/* Consumer */
-		0x07, /* 0, Descriptor size */
-		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
-		0x84, /* 2, Endpoint number + direction */
-		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
-		0x00, 0x02, /* 4, Max packet size */
-		0x00 /* 6, Service interval */
+//	     // Interface descriptors
+//
+//		0x09, /* 0, Descriptor size */
+//		CY_U3P_USB_INTRFC_DESCR, /* 1, Interface Descriptor type */
+//		0x03, /* 2, Interface number */
+//		0x00, /* 3, Alternate setting number */
+//		0x02, /* 4, Number of end points */
+//		0xFF, /* 5, Interface class */
+//		0x00, /* 5, Interface sub class */
+//		0x00, /* 6, Interface protocol code  */
+//		0x04, /* 7, Interface descriptor string index */
+//
+//		/* Producer */
+//		0x07, /* 0, Descriptor size */
+//		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
+//		0x02, /* 2, Endpoint number + direction */
+//		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
+//		0x00, 0x02, /* 4, Max packet size */
+//		0x00, /* 6, Service interval */
+//
+//		/* Consumer */
+//		0x07, /* 0, Descriptor size */
+//		CY_U3P_USB_ENDPNT_DESCR, /* 1, Endpoint descriptor type */
+//		0x84, /* 2, Endpoint number + direction */
+//		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
+//		0x00, 0x02, /* 4, Max packet size */
+//		0x00 /* 6, Service interval */
 
 
 };
@@ -791,7 +791,8 @@ const uint8_t ztex_usb1_config_descriptor[] __attribute__ ((aligned (32))) = {
 		0x06, /* 2, Endpoint number + direction */
 		CY_U3P_USB_EP_BULK, /* 3, endpoint type */
 		0x00, 0x02, /* 4, Max packet size */
-		0x00, };
+		0x00,
+};
 
 // language string descriptor */
 const uint8_t ztex_lang_string_descriptor[] __attribute__ ((aligned (32))) = {
