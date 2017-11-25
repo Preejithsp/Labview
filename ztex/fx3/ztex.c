@@ -167,7 +167,7 @@ uint8_t ztex_usb_is_connected = 0;
 #include "ztex-flash.c"
 #endif
 
-#include "ztex-i2c.c"
+//#include "ztex-i2c.c"
 
 #define _ZTEX_INCLUDE_2_
 
@@ -1764,7 +1764,36 @@ void UVCAppEP0Thread_Entry(uint32_t input) {
 	}
 }
 
+
+//**************************************i2c********************************/
+
+void ztex_i2c_init() {
+    CyU3PReturnStatus_t status = CY_U3P_SUCCESS;
+
+    CyU3PI2cConfig_t i2cConfig;
+    uint8_t buf[5];
+
+    ZTEX_REC( status=CyU3PI2cInit() );
+
+
+    CyU3PMemSet ((uint8_t *)&i2cConfig, 0, sizeof(i2cConfig));
+    i2cConfig.bitRate    = 100000;
+    i2cConfig.busTimeout = 0xFFFFFFFF;
+    i2cConfig.dmaTimeout = 0xFFFF;
+    i2cConfig.isDma      = CyFalse;
+    ZTEX_REC( status = CyU3PI2cSetConfig (&i2cConfig, NULL) );
+
+}
+
+
+//**************************************i2c********************************/
+
+
+
+
 CyU3PThread ztex_app_thread;	 		// ztex application thread structure
+
+
 
 // entry function for the application thread
 void ztex_app_thread_entry(uint32_t input) {

@@ -361,7 +361,7 @@ void ztex_board_init() {
 void ztex_flash_config() {
     uint8_t buf[6];
     uint16_t bs_start, bs_size;
-    if ( ZTEX_FPGA_CONFIGURED || !ztex_config_data_valid || !ztex_flash.enabled ) return;
+    if ( ZTEX_FPGA_CONFIGURED  || !ztex_flash.enabled ) return;
 //    if ( ztex_mac_eeprom_read ( 26, buf, 6 ) ) return;
 //
 //    bs_start = ((buf[4] + 15) & 0xf0) | (buf[5] << 8); 		// in 4k sectors
