@@ -333,7 +333,8 @@ void ztex_board_init() {
     
     ztex_gpio_set_input(ZTEX_GPIO_FPGA_DONE);
     ztex_gpio_set_output(ZTEX_GPIO_FPGA_RESET, CyTrue);
-    ztex_gpio_set_input(ZTEX_GPIO_FPGA_INIT_B);    	CyU3PGpioSetIoMode(ZTEX_GPIO_FPGA_INIT_B, CY_U3P_GPIO_IO_MODE_WPU);
+    ztex_gpio_set_input(ZTEX_GPIO_FPGA_INIT_B);
+    CyU3PGpioSetIoMode(ZTEX_GPIO_FPGA_INIT_B, CY_U3P_GPIO_IO_MODE_WPU);
 
     ztex_gpio_set_output(ZTEX_GPIO_OTG_EN, CyFalse);
     
@@ -361,11 +362,15 @@ void ztex_flash_config() {
     uint8_t buf[6];
     uint16_t bs_start, bs_size;
     if ( ZTEX_FPGA_CONFIGURED || !ztex_config_data_valid || !ztex_flash.enabled ) return;
-    if ( ztex_mac_eeprom_read ( 26, buf, 6 ) ) return;
+//    if ( ztex_mac_eeprom_read ( 26, buf, 6 ) ) return;
+//
+//    bs_start = ((buf[4] + 15) & 0xf0) | (buf[5] << 8); 		// in 4k sectors
+//    bs_size = buf[0] | (buf[1] << 8); 				// in 4k sectors
+//    ZTEX_LOG(": before_bs_start: %d", bs_start);
+//    ZTEX_LOG("before_bs_size: %d",bs_size);
     
-    bs_start = ((buf[4] + 15) & 0xf0) | (buf[5] << 8); 		// in 4k sectors
-    bs_size = buf[0] | (buf[1] << 8); 				// in 4k sectors
-
+    bs_start=128;
+    bs_size=944;
     if (bs_size == 0) return;
 	
     ZTEX_REC( CyU3PPibInit(CyTrue, &ztex_fpgaconf1_pib_clock) ); // init PIB
@@ -377,6 +382,8 @@ void ztex_flash_config() {
 	    ztex_fpga_config_done(CyTrue);
 	    return;
 	}
+//	 ZTEX_LOG(":Aft_bs_start: %d", bs_start);
+//	    ZTEX_LOG("AFT_bs_size: %d",bs_size);
 	if ( ztex_fpgaconf1_send(ztex_ep0buf, 4096) ) {
 	    ztex_log ( "Error uploading bitstream from Flash: Bitstream write error" );
 	    ztex_fpga_config_done(CyTrue);
